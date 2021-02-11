@@ -13,11 +13,11 @@ on:
         required: true
         default: "actionsuser@dreamingincrm.onmicrosoft.com"
       environmentUrl:
-        description: "Environment URL"
+        description: "Source Environment URL"
         required: true
-        default: "https://dreamingincrmsandbox.crm6.dynamics.com"
+        default: "https://dreamingincrm.crm6.dynamics.com"
       solution:
-        description: "Solution to import"
+        description: "Solution to export"
         required: true
         default: "GitHubSolution"
 jobs:
