@@ -1,0 +1,120 @@
+name: deploy-solution-ci
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - Solutions/**
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      applicationId: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
+      environmentUrl: https://dreamingincrmsandbox.crm6.dynamics.com
+      userName: "actionsuser@dreamingincrm.onmicrosoft.com"
+      solution: "GitHubSolution"
+      solutionType: "Managed"
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: who-am-i
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
+        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+
+      - id: pack-solution
+        name: Build ${{ env.solution }} as Managed Solution
+        uses: microsoft/powerplatform-actions/pack-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          solution-file: "out/${{ env.solution }}.zip"
+          solution-folder: "Solutions/${{ env.solution }}/src"
+          solution-type: "Managed"
+
+      - id: solution-version
+        name: Getting version information for ${{ env.solution }}
+        uses: mavrosxristoforos/get-xml-info@1.0
+        with:
+          xml-file: "Solutions/${{ env.solution }}/src/Other/Solution.xml"
+          xpath: "//ImportExportXml/SolutionManifest/Version"
+
+      - id: upload-solution-artifact
+        name: Uploading ${{ env.solution }}_managed_v${{ steps.solution-version.outputs.info }} as artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.solution }}_managed_v${{ steps.solution-version.outputs.info }}
+          path: "out/${{ env.solution }}.zip"
+
+      - uses: bobheadxi/deployments@master
+        id: deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          transient: false
+          env: TEST
+          desc: Importing solution ${{ env.solution }}_managed_v${{ steps.solution-version.outputs.info }} into TEST..
+
+      - id: check-solution-exists
+        name: Check if ${{ env.solution }} solution exists
+        shell: powershell
+        run: |
+          Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Force
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.cds }}"
+          $solutions = Get-CrmRecordsByFetch -Fetch "<fetch><entity name='solution' ><attribute name='solutionid' /><attribute name='version' /><filter><condition attribute='uniquename' operator='eq' value='${{ env.solution }}' /></filter></entity></fetch>" -conn $conn
+          if($solutions.Count -eq 0){
+               echo "::set-output name=isHolding::false"
+          }
+          else {
+             echo "::set-output name=isHolding::true"
+          }
+
+      - id: import-unmanaged-solution
+        if: env.solutionType == 'Unmanaged'
+        name: Importing Unmanaged ${{ env.solution }}.zip into ${{ env.environmentUrl }}
+        uses: microsoft/powerplatform-actions/import-solution@v0.1.7
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+          solution-file: "out/${{ env.solution }}.zip"
+          publish-changes: true
+          activate-plugins: true
+
+      - id: import-managed-solution
+        if: env.solutionType == 'Managed'
+        name: Importing Managed ${{ env.solution }}.zip into ${{ env.environmentUrl }}
+        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+          import-as-holding: ${{ steps.check-solution-exists.outputs.isHolding }}
+          solution-file: "out/${{ env.solution }}.zip"
+          activate-plugins: true
+
+      - id: apply-solution-upgrade
+        if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
+        name: Applying Solution Upgrade for ${{ env.solution }}
+        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+          solution-name: "{{ env.solution }}"
+          async: true
+
+      - name: Update deployment status
+        uses: bobheadxi/deployments@master
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          desc: ${{ steps.solution-version.outputs.info }}
+          status: ${{ job.status }}
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}

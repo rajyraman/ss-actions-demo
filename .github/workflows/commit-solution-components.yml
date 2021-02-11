@@ -1,0 +1,94 @@
+name: commit-solution-components
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: [self-hosted, windows, x64]
+    env:
+      environmentUrl: https://dreamingincrm.crm6.dynamics.com
+      userName: "actionsuser@dreamingincrm.onmicrosoft.com"
+      applicationId: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
+      solution: "GitHubSolution"
+      timeZone: "AUS Eastern Standard Time"
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: who-am-i
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
+        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+
+      - id: increment-solution-version
+        name: Incrementing Solution Version in format yyyy.MM.dd.run
+        shell: powershell
+        run: |
+          Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Verbose -Force
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.cds }}"
+          $version = "$([System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), '${{ env.timeZone }}').ToString("yyyy.MM.dd")).${{ github.run_number }}";
+          echo "::set-output name=solutionVersion::$version"          
+          Set-CrmSolutionVersionNumber -SolutionName ${{ env.solution }} -VersionNumber $version
+
+      - id: export-managed-solution
+        name: Export ${{ env.solution }} as Managed
+        uses: microsoft/powerplatform-actions/export-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+          solution-name: ${{ env.solution }}
+          solution-output-file: "${{ env.solution }}_managed.zip"
+          working-directory: "out"
+          managed: true
+
+      - id: export-unmanaged-solution
+        name: Export ${{ env.solution }} as Unmanaged
+        uses: microsoft/powerplatform-actions/export-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ env.environmentUrl }}
+          user-name: ${{ env.userName }}
+          password-secret: ${{ secrets.password }}
+          solution-name: ${{ env.solution }}
+          solution-output-file: "${{ env.solution }}.zip"
+          working-directory: "out"
+
+      - id: unpack-solution
+        name: Unpack ${{ env.solution }}
+        uses: microsoft/powerplatform-actions/unpack-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          solution-file: "out/${{ env.solution }}.zip"
+          solution-folder: "Solutions/${{ env.solution }}/src"
+          solution-type: "Both"
+          overwrite-files: true
+
+      - id: branch-name
+        name: Set Branch Name variable
+        run: |
+          echo "::set-output name=branchName::${{ env.solution }}_${{ steps.increment-solution-version.outputs.solutionVersion }}"
+
+      - id: create-solution-branch
+        name: Create ${{ steps.branch-name.outputs.branchName }} branch
+        uses: microsoft/powerplatform-actions/branch-solution@ad020db
+        with:
+          solution-folder: "Solutions/${{ env.solution }}"
+          solution-target-folder: "Solutions/${{ env.solution }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          branch-name: ${{ steps.branch-name.outputs.branchName }}
+
+      - uses: octokit/request-action@v2.x
+        name: Create PR for branch ${{ steps.branch-name.outputs.branchName }}
+        id: create_pr
+        with:
+          owner: "rajyraman"
+          repo: ${{ github.repository }}
+          route: POST /repos/:repo/pulls
+          title: ${{ steps.branch-name.outputs.branchName }}
+          head: ${{ steps.branch-name.outputs.branchName }}
+          base: "main"
+          maintainer_can_modify: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

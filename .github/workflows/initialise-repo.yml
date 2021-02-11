@@ -1,0 +1,74 @@
+# Workflow to initialise the solution in GitHub from an existing solution in CDS
+name: initialise-repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      applicationId:
+        description: "Application Id"
+        required: true
+        default: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
+      userName:
+        description: "User Name"
+        required: true
+        default: "actionsuser@dreamingincrm.onmicrosoft.com"
+      environmentUrl:
+        description: "Environment URL"
+        required: true
+        default: "https://dreamingincrmsandbox.crm6.dynamics.com"
+      solution:
+        description: "Solution to import"
+        required: true
+        default: "GitHubSolution"
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: who-am-i
+        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ github.event.inputs.environmentUrl }}
+          user-name: ${{ github.event.inputs.userName }}
+          password-secret: ${{ secrets.password }}
+
+      - id: clone-solution
+        uses: microsoft/powerplatform-actions/clone-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          environment-url: ${{ github.event.inputs.environmentUrl }}
+          user-name: ${{ github.event.inputs.userName }}
+          password-secret: ${{ secrets.password }}
+          solution-name: ${{ github.event.inputs.solution }}
+          target-folder: "./Solutions"
+
+      - id: solution-version
+        uses: mavrosxristoforos/get-xml-info@1.0
+        with:
+          xml-file: "Solutions/${{ github.event.inputs.solution }}/src/Other/Solution.xml"
+          xpath: "//ImportExportXml/SolutionManifest/Version"
+
+      - id: branch-name
+        run: |
+          echo "::set-output name=branchName::${{ github.event.inputs.solution }}_${{ steps.solution-version.outputs.info }}"
+
+      - id: create-solution-branch
+        uses: microsoft/powerplatform-actions/branch-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        with:
+          solution-folder: "Solutions/${{ github.event.inputs.solution }}"
+          solution-target-folder: "Solutions/${{ github.event.inputs.solution }}"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          branch-name: ${{ steps.branch-name.outputs.branchName }}
+
+      - uses: octokit/request-action@v2.x
+        id: create_pr
+        with:
+          owner: "rajyraman"
+          repo: ${{ github.repository }}
+          route: POST /repos/:repo/pulls
+          title: ${{ steps.branch-name.outputs.branchName }}
+          head: ${{ steps.branch-name.outputs.branchName }}
+          base: "main"
+          maintainer_can_modify: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
