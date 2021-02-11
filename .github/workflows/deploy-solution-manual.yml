@@ -112,7 +112,7 @@ jobs:
           environment-url: ${{ env.environmentUrl }}
           user-name: ${{ env.userName }}
           password-secret: ${{ secrets.password }}
-          solution-name: {{ env.solution }}
+          solution-name: ${{ env.solution }}
           async: true
 
       - name: Create Release
