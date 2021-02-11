@@ -107,7 +107,7 @@ jobs:
       - id: apply-solution-upgrade
         if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
         name: Applying Solution Upgrade for ${{ env.solution }}
-        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/upgrade-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
         with:
           environment-url: ${{ env.environmentUrl }}
           user-name: ${{ env.userName }}
