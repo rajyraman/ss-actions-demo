@@ -50,6 +50,3 @@ jobs:
           solution-file: 'out/${{ github.event.inputs.solutionName }}.zip'
           solution-folder: 'Solutions/${{ github.event.inputs.solutionName }}/src'
           solution-type: ${{ github.event.inputs.solutionType }}
-          
-      - name: Debugging with tmate
-        uses: mxschmitt/action-tmate@v3.3
