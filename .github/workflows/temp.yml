@@ -7,6 +7,10 @@ on:
         description: "Application Id"
         required: true
         default: 'e605bea5-f749-4f51-8508-8c6891d9f8dc'
+      tenantId:
+        description: "Tenant Id"
+        required: true
+        default: '6698ac31-e602-4f64-ac1f-472ae585c006'        
       userName:
         description: "User Name"
         required: true
@@ -29,7 +33,7 @@ on:
         default: false        
 jobs:
   build:
-    runs-on: [self-hosted, windows, x64]
+    runs-on: windows-latest
     env:
       timeZone: "AUS Eastern Standard Time"
     steps:
@@ -37,16 +41,9 @@ jobs:
         
       - id: who-am-i
         name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
-        uses: microsoft/powerplatform-actions/who-am-i@465ec9b6d3336a846e5f7b3a5620e035e2f82331
+        uses: microsoft/powerplatform-actions/who-am-i@main
         with:
           environment-url: ${{ github.event.inputs.sourceEnvironmentUrl }}
-          user-name: ${{ github.event.inputs.userName }}
-          password-secret: ${{ secrets.password }}
-          
-      - id: pack-solution
-        name: Build ${{ env.solution }} as ${{ github.event.inputs.solutionType }} Solution
-        uses: microsoft/powerplatform-actions/pack-solution@465ec9b6d3336a846e5f7b3a5620e035e2f82331
-        with:
-          solution-file: 'out/${{ github.event.inputs.solutionName }}.zip'
-          solution-folder: 'Solutions/${{ github.event.inputs.solutionName }}/src'
-          solution-type: ${{ github.event.inputs.solutionType }}
+          app-id: ${{ github.event.inputs.applicationId }}
+          client-secret: ${{ secrets.cds }}
+          tenant-id: ${{ secrets.tenantId }}
