@@ -6,7 +6,7 @@ on:
       applicationId:
         description: "Application Id"
         required: true
-        default: 'e605bea5-f749-4f51-8508-8c6891d9f8dc'
+        default: 'f0a39d99-08df-492d-9c84-ecc22aaa064a'
       tenantId:
         description: "Tenant Id"
         required: true
