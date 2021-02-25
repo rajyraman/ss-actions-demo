@@ -33,7 +33,7 @@ on:
         default: false        
 jobs:
   build:
-    runs-on: [self-hosted, windows, x64]
+    runs-on: windows-latest
     env:
       timeZone: "AUS Eastern Standard Time"
     steps:
