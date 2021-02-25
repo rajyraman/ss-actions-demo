@@ -45,5 +45,5 @@ jobs:
         with:
           environment-url: ${{ github.event.inputs.sourceEnvironmentUrl }}
           app-id: ${{ github.event.inputs.applicationId }}
-          client-secret: ${{ secrets.cds }}
+          client-secret: ${{ secrets.DATAVERSESECRET }}
           tenant-id: ${{ github.event.inputs.tenantId }}
