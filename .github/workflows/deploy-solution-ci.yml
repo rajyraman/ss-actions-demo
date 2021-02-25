@@ -12,25 +12,26 @@ jobs:
   build:
     runs-on: windows-latest
     env:
-      applicationId: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
-      environmentUrl: https://dreamingincrmsandbox.crm6.dynamics.com
-      userName: "actionsuser@dreamingincrm.onmicrosoft.com"
+      applicationId: "f0a39d99-08df-492d-9c84-ecc22aaa064a"
+      environmentUrl: "https://dreamingincrmsandbox.crm6.dynamics.com"
+      tenantId: "6698ac31-e602-4f64-ac1f-472ae585c006"
       solution: "GitHubSolution"
       solutionType: "Managed"
     steps:
       - uses: actions/checkout@v2
 
       - id: who-am-i
-        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
-        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.applicationId }}
+        uses: microsoft/powerplatform-actions/who-am-i@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
 
       - id: pack-solution
         name: Build ${{ env.solution }} as Managed Solution
-        uses: microsoft/powerplatform-actions/pack-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/pack-solution@main
         with:
           solution-file: "out/${{ env.solution }}.zip"
           solution-folder: "Solutions/${{ env.solution }}/src"
@@ -64,7 +65,7 @@ jobs:
         shell: powershell
         run: |
           Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Force
-          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.cds }}"
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.dataversesecret }}"
           $solutions = Get-CrmRecordsByFetch -Fetch "<fetch><entity name='solution' ><attribute name='solutionid' /><attribute name='version' /><filter><condition attribute='uniquename' operator='eq' value='${{ env.solution }}' /></filter></entity></fetch>" -conn $conn
           if($solutions.Count -eq 0){
                echo "::set-output name=isHolding::false"
@@ -76,37 +77,43 @@ jobs:
       - id: import-unmanaged-solution
         if: env.solutionType == 'Unmanaged'
         name: Importing Unmanaged ${{ env.solution }}.zip into ${{ env.environmentUrl }}
-        uses: microsoft/powerplatform-actions/import-solution@v0.1.7
+        uses: microsoft/powerplatform-actions/import-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
           solution-file: "out/${{ env.solution }}.zip"
           publish-changes: true
           activate-plugins: true
+          run-asynchronously: true
 
       - id: import-managed-solution
         if: env.solutionType == 'Managed'
         name: Importing Managed ${{ env.solution }}.zip into ${{ env.environmentUrl }}
-        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/import-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
           import-as-holding: ${{ steps.check-solution-exists.outputs.isHolding }}
           solution-file: "out/${{ env.solution }}.zip"
           activate-plugins: true
+          run-asynchronously: true          
 
       - id: apply-solution-upgrade
         if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
         name: Applying Solution Upgrade for ${{ env.solution }}
-        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/import-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
           solution-name: ${{ env.solution }}
           async: true
+          max-async-wait-time: 120
 
       - name: Update deployment status
         uses: bobheadxi/deployments@master

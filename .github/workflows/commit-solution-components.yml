@@ -7,58 +7,63 @@ jobs:
   build:
     runs-on: [self-hosted, windows, x64]
     env:
-      environmentUrl: https://dreamingincrm.crm6.dynamics.com
-      userName: "actionsuser@dreamingincrm.onmicrosoft.com"
-      applicationId: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
+      environmentUrl: "https://dreamingincrm.crm6.dynamics.com"
+      tenantId: "6698ac31-e602-4f64-ac1f-472ae585c006"
+      applicationId: "f0a39d99-08df-492d-9c84-ecc22aaa064a"
       solution: "GitHubSolution"
       timeZone: "AUS Eastern Standard Time"
     steps:
       - uses: actions/checkout@v2
 
       - id: who-am-i
-        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
-        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.applicationId }}
+        uses: microsoft/powerplatform-actions/who-am-i@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
 
       - id: increment-solution-version
         name: Incrementing Solution Version in format yyyy.MM.dd.run
         shell: powershell
         run: |
           Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Verbose -Force
-          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.cds }}"
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.dataversesecret }}"
           $version = "$([System.TimeZoneInfo]::ConvertTimeBySystemTimeZoneId((Get-Date), '${{ env.timeZone }}').ToString("yyyy.MM.dd")).${{ github.run_number }}";
           echo "::set-output name=solutionVersion::$version"          
           Set-CrmSolutionVersionNumber -SolutionName ${{ env.solution }} -VersionNumber $version
 
       - id: export-managed-solution
         name: Export ${{ env.solution }} as Managed
-        uses: microsoft/powerplatform-actions/export-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/export-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
           solution-name: ${{ env.solution }}
           solution-output-file: "${{ env.solution }}_managed.zip"
           working-directory: "out"
           managed: true
+          run-asynchronously: true
 
       - id: export-unmanaged-solution
         name: Export ${{ env.solution }} as Unmanaged
-        uses: microsoft/powerplatform-actions/export-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/export-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
           solution-name: ${{ env.solution }}
           solution-output-file: "${{ env.solution }}.zip"
           working-directory: "out"
+          run-asynchronously: true
 
       - id: unpack-solution
         name: Unpack ${{ env.solution }}
-        uses: microsoft/powerplatform-actions/unpack-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        uses: microsoft/powerplatform-actions/unpack-solution@main
         with:
           solution-file: "out/${{ env.solution }}.zip"
           solution-folder: "Solutions/${{ env.solution }}/src"
@@ -72,7 +77,7 @@ jobs:
 
       - id: create-solution-branch
         name: Create ${{ steps.branch-name.outputs.branchName }} branch
-        uses: microsoft/powerplatform-actions/branch-solution@ad020db
+        uses: microsoft/powerplatform-actions/branch-solution@main
         with:
           solution-folder: "Solutions/${{ env.solution }}"
           solution-target-folder: "Solutions/${{ env.solution }}"

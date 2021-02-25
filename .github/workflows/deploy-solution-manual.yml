@@ -6,15 +6,15 @@ on:
       applicationId:
         description: "Application Id"
         required: true
-        default: "e605bea5-f749-4f51-8508-8c6891d9f8dc"
-      userName:
-        description: "User Name"
-        required: true
-        default: "actionsuser@dreamingincrm.onmicrosoft.com"
+        default: "f0a39d99-08df-492d-9c84-ecc22aaa064a"
       environmentUrl:
         description: "Environment URL"
         required: true
         default: "https://dreamingincrmsandbox.crm6.dynamics.com"
+      tenantId:
+        description: "Tenant Id"
+        required: true
+        default: '6698ac31-e602-4f64-ac1f-472ae585c006'        
       solutionType:
         description: "Managed or Unmanaged?"
         required: true
@@ -26,35 +26,31 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    env:
-      applicationId: ${{ github.event.inputs.applicationId }}
-      environmentUrl: ${{ github.event.inputs.environmentUrl }}
-      userName: ${{ github.event.inputs.userName }}
-      solution: ${{ github.event.inputs.solution }}
     steps:
       - uses: actions/checkout@v2
 
       - id: who-am-i
-        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
-        uses: microsoft/powerplatform-actions/who-am-i@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Connecting to ${{ github.event.inputs.environmentUrl }} as ${{ github.event.inputs.applicationId }}
+        uses: microsoft/powerplatform-actions/who-am-i@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ github.event.inputs.environmentUrl }}        
+          app-id: ${{ github.event.inputs.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ github.event.inputs.tenantId }}
 
       - id: pack-solution
-        name: Build ${{ env.solution }} as ${{ github.event.inputs.solutionType }} Solution
-        uses: microsoft/powerplatform-actions/pack-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Build ${{ github.event.inputs.solution }} as ${{ github.event.inputs.solutionType }} Solution
+        uses: microsoft/powerplatform-actions/pack-solution@main
         with:
-          solution-file: "out/${{ env.solution }}.zip"
-          solution-folder: "Solutions/${{ env.solution }}/src"
+          solution-file: "out/${{ github.event.inputs.solution }}.zip"
+          solution-folder: "Solutions/${{ github.event.inputs.solution }}/src"
           solution-type: ${{ github.event.inputs.solutionType }}
 
       - id: solution-version
-        name: Getting version information for ${{ env.solution }}
+        name: Getting version information for ${{ github.event.inputs.solution }}
         uses: mavrosxristoforos/get-xml-info@1.0
         with:
-          xml-file: "Solutions/${{ env.solution }}/src/Other/Solution.xml"
+          xml-file: "Solutions/${{ github.event.inputs.solution }}/src/Other/Solution.xml"
           xpath: "//ImportExportXml/SolutionManifest/Version"
 
       - uses: bobheadxi/deployments@master
@@ -64,14 +60,14 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           transient: true
           env: PROD
-          desc: Importing solution ${{ env.solution }}_managed_v${{ steps.solution-version.outputs.info }} into PROD..
+          desc: Importing solution ${{ github.event.inputs.solution }}_managed_v${{ steps.solution-version.outputs.info }} into PROD..
 
       - id: check-solution-exists
-        name: Check if ${{ env.solution }} solution exists
+        name: Check if ${{ github.event.inputs.solution }} solution exists
         shell: powershell
         run: |
           Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Force
-          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.cds }}"
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ github.event.inputs.environmentUrl }}; ClientId=${{ github.event.inputs.applicationId }}; ClientSecret=${{ secrets.dataversesecret }}"
           $solutions = Get-CrmRecordsByFetch -Fetch "<fetch><entity name='solution' ><attribute name='solutionid' /><attribute name='version' /><filter><condition attribute='uniquename' operator='eq' value='${{ github.event.inputs.solution }}' /></filter></entity></fetch>" -conn $conn
           if($solutions.Count -eq 0){
                echo "::set-output name=isHolding::false"
@@ -82,38 +78,44 @@ jobs:
 
       - id: import-unmanaged-solution
         if: github.event.inputs.solutionType == 'Unmanaged'
-        name: Importing Unmanaged ${{ env.solution }}.zip into ${{ env.environmentUrl }}
-        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Importing Unmanaged ${{ github.event.inputs.solution }}.zip into ${{ github.event.inputs.environmentUrl }}
+        uses: microsoft/powerplatform-actions/import-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
-          solution-file: "out/${{ env.solution }}.zip"
+          environment-url: ${{ github.event.inputs.environmentUrl }}        
+          app-id: ${{ github.event.inputs.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ github.event.inputs.tenantId }}
+          solution-file: "out/${{ github.event.inputs.solution }}.zip"
           publish-changes: true
           activate-plugins: true
+          run-asynchronously: true               
 
       - id: import-managed-solution
         if: github.event.inputs.solutionType == 'Managed'
-        name: Importing Managed ${{ env.solution }}.zip into ${{ env.environmentUrl }}
-        uses: microsoft/powerplatform-actions/import-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Importing Managed ${{ github.event.inputs.solution }}.zip into ${{ github.event.inputs.environmentUrl }}
+        uses: microsoft/powerplatform-actions/import-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
+          environment-url: ${{ github.event.inputs.environmentUrl }}        
+          app-id: ${{ github.event.inputs.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ github.event.inputs.tenantId }}
           import-as-holding: ${{ steps.check-solution-exists.outputs.isHolding }}
-          solution-file: "out/${{ env.solution }}.zip"
+          solution-file: "out/${{ github.event.inputs.solution }}.zip"
           activate-plugins: true
+          run-asynchronously: true               
 
       - id: apply-solution-upgrade
         if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
-        name: Applying Solution Upgrade for ${{ env.solution }}
-        uses: microsoft/powerplatform-actions/upgrade-solution@c1656e8f1cca743ec01f1bcbbeff0b9059b01103
+        name: Applying Solution Upgrade for ${{ github.event.inputs.solution }}
+        uses: microsoft/powerplatform-actions/upgrade-solution@main
         with:
-          environment-url: ${{ env.environmentUrl }}
-          user-name: ${{ env.userName }}
-          password-secret: ${{ secrets.password }}
-          solution-name: ${{ env.solution }}
+          environment-url: ${{ github.event.inputs.environmentUrl }}        
+          app-id: ${{ github.event.inputs.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ github.event.inputs.tenantId }}
+          solution-name: ${{ github.event.inputs.solution }}
           async: true
+          max-async-wait-time: 120
 
       - name: Create Release
         id: create_release
@@ -122,7 +124,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.solution-version.outputs.info }}
-          release_name: ${{ env.solution }}_v${{ steps.solution-version.outputs.info }}
+          release_name: ${{ github.event.inputs.solution }}_v${{ steps.solution-version.outputs.info }}
           draft: false
           prerelease: false
 
@@ -133,8 +135,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "out/${{ env.solution }}.zip"
-          asset_name: ${{ env.solution }}_v${{ steps.solution-version.outputs.info }}.zip
+          asset_path: "out/${{ github.event.inputs.solution }}.zip"
+          asset_name: ${{ github.event.inputs.solution }}_v${{ steps.solution-version.outputs.info }}.zip
           asset_content_type: application/zip
 
       - name: Update deployment status
