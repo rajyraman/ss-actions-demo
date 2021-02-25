@@ -41,7 +41,7 @@ jobs:
         
       - id: who-am-i
         name: Connecting to ${{ github.event.inputs.sourceEnvironmentUrl }} as ${{ github.event.inputs.applicationId }} on tenant ${{ github.event.inputs.tenantId }}
-        uses: microsoft/powerplatform-actions/who-am-i@4d9cb1d7f20d958b3a50951437b8fb7675c97bbd
+        uses: microsoft/powerplatform-actions/who-am-i@main
         with:
           environment-url: ${{ github.event.inputs.sourceEnvironmentUrl }}
           app-id: ${{ github.event.inputs.applicationId }}
