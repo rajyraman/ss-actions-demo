@@ -40,8 +40,8 @@ jobs:
       - uses: actions/checkout@v2
         
       - id: who-am-i
-        name: Connecting to ${{ env.environmentUrl }} as ${{ env.userName }}
-        uses: microsoft/powerplatform-actions/who-am-i@main
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.applicationId }}
+        uses: microsoft/powerplatform-actions/who-am-i@4d9cb1d7f20d958b3a50951437b8fb7675c97bbd
         with:
           environment-url: ${{ github.event.inputs.sourceEnvironmentUrl }}
           app-id: ${{ github.event.inputs.applicationId }}
