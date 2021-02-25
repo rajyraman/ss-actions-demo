@@ -10,27 +10,11 @@ on:
       tenantId:
         description: "Tenant Id"
         required: true
-        default: '6698ac31-e602-4f64-ac1f-472ae585c006'        
-      userName:
-        description: "User Name"
-        required: true
-        default: 'actionsuser@dreamingincrm.onmicrosoft.com'        
+        default: '6698ac31-e602-4f64-ac1f-472ae585c006'          
       sourceEnvironmentUrl:
         description: "Environment URL"
         required: true
-        default: 'https://dreamingincrm.crm6.dynamics.com'
-      solutionType:
-        description: "Managed or Unmanaged?"
-        required: true
-        default: 'Managed'
-      solutionName:
-        description: "Solution to import"
-        required: true
-        default: 'GitHubSolution'
-      release:
-        description: "Release?"
-        required: true
-        default: false        
+        default: 'https://dreamingincrm.crm6.dynamics.com'  
 jobs:
   build:
     runs-on: windows-latest
@@ -45,5 +29,5 @@ jobs:
         with:
           environment-url: ${{ github.event.inputs.sourceEnvironmentUrl }}
           app-id: ${{ github.event.inputs.applicationId }}
-          client-secret: ${{ secrets.DATAVERSESECRET }}
+          client-secret: ${{ secrets.dataversesecret }}
           tenant-id: ${{ github.event.inputs.tenantId }}
