@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <systemform>
-    <formid>{d1c58148-48af-430d-9be7-7a733fcfadf8}</formid>
-    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <formid>{e96678c6-954d-4242-b683-6068f61c8565}</formid>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <FormPresentation>1</FormPresentation>
     <FormActivationState>1</FormActivationState>
     <form>
       <tabs>
-        <tab name="general" verticallayout="true" id="{5bf17b97-fc49-4b1c-acff-60925ed0e819}" IsUserDefined="0">
+        <tab name="general" verticallayout="true" id="{719b2288-9375-49c2-9f74-5eb542c3289e}" IsUserDefined="0">
           <labels>
             <label description="" languagecode="1033" />
           </labels>
           <columns>
             <column width="25%">
               <sections>
-                <section name="ColorStrip" showlabel="false" showbar="false" columns="1" IsUserDefined="0" id="{39f6d34c-a424-4b20-89c9-d0fa739fb8fa}">
+                <section name="ColorStrip" showlabel="false" showbar="false" columns="1" IsUserDefined="0" id="{5acf40e6-5027-40d0-89b9-d5c8cf3b95e1}">
                   <labels>
                     <label description="ColorStrip" languagecode="1033" />
                   </labels>
@@ -23,24 +23,24 @@
             </column>
             <column width="75%">
               <sections>
-                <section name="CardHeader" showlabel="false" showbar="false" columns="111" id="{9e86dbf6-7e9b-4278-ad27-15d6e7a34ff3}" IsUserDefined="0">
+                <section name="CardHeader" showlabel="false" showbar="false" columns="111" id="{8934672a-5020-4674-950d-4637bdbe4e83}" IsUserDefined="0">
                   <labels>
                     <label description="Header" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{9a70e76d-de12-46f3-bd96-413f3545e65b}" showlabel="true" locklevel="0">
+                      <cell id="{38be0e99-e5d9-47b1-9141-ab0e7ded846f}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Status Reason" languagecode="1033" />
                         </labels>
                         <control id="statuscode" classid="{5D68B988-0661-4db2-BC3E-17598AD3BE6C}" datafieldname="statuscode" disabled="false" />
                       </cell>
-                      <cell id="{db782b0e-7813-48df-b843-e8cd4d9ce55a}" showlabel="true" locklevel="0">
+                      <cell id="{68b21dbc-85f7-4c78-be05-20eec26f3f30}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{ebe0dc01-18ef-4026-97dc-eaac305453f9}" showlabel="true" locklevel="0">
+                      <cell id="{290cfd34-d8bd-4915-8d75-42009330fff0}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
@@ -48,13 +48,13 @@
                     </row>
                   </rows>
                 </section>
-                <section name="CardDetails" showlabel="false" showbar="false" columns="1" id="{83cf9031-97f7-4a18-a7c2-e75242da1517}" IsUserDefined="0">
+                <section name="CardDetails" showlabel="false" showbar="false" columns="1" id="{7f48b8d5-40b3-43c2-9a3d-5d13625cb322}" IsUserDefined="0">
                   <labels>
                     <label description="Details" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{215cccb3-552b-4453-b74e-bfbaaded4d7d}" showlabel="true" locklevel="0">
+                      <cell id="{a2f17232-a34b-4f38-8e10-c6f40f506d80}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Name" languagecode="1033" />
                         </labels>
@@ -63,30 +63,30 @@
                     </row>
                   </rows>
                 </section>
-                <section name="CardFooter" showlabel="false" columns="1111" showbar="false" id="{0b6ac739-c671-4866-9d8e-e4818e28bf4c}" IsUserDefined="0">
+                <section name="CardFooter" showlabel="false" columns="1111" showbar="false" id="{d94fef5d-dc41-45e5-9f42-b197a5451003}" IsUserDefined="0">
                   <labels>
                     <label description="Footer" languagecode="1033" />
                   </labels>
                   <rows>
                     <row>
-                      <cell id="{54836ae5-a36c-4345-9a9a-a2f0576ecc5d}" showlabel="true" locklevel="0">
+                      <cell id="{16cc663e-9636-4aa0-8c88-883ad17dad27}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Owner" languagecode="1033" />
                         </labels>
                         <control id="ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" disabled="false" />
                       </cell>
-                      <cell id="{da0c2c36-57f0-4d13-ad30-3b3c992d27fc}" showlabel="true" locklevel="0">
+                      <cell id="{c355f97c-1d4f-4d96-bcb4-ec6a8c967dbb}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="Created On" languagecode="1033" />
                         </labels>
                         <control id="createdon" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="createdon" disabled="false" />
                       </cell>
-                      <cell id="{9ac74d73-3217-4a36-ba17-0b1ca951c984}" showlabel="true" locklevel="0">
+                      <cell id="{44006a8b-fea0-41fb-9eec-efa2504b544f}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>
                       </cell>
-                      <cell id="{9490834d-22b4-46df-93d2-3cf3442213cb}" showlabel="true" locklevel="0">
+                      <cell id="{5a1027f2-0abe-4824-8eb8-e3284bd7d7c5}" showlabel="true" locklevel="0">
                         <labels>
                           <label description="" languagecode="1033" />
                         </labels>

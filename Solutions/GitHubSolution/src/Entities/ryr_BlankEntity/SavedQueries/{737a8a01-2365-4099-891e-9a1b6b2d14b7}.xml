@@ -2,37 +2,35 @@
 <savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <savedquery>
     <IsCustomizable>1</IsCustomizable>
-    <CanBeDeleted>1</CanBeDeleted>
+    <CanBeDeleted>0</CanBeDeleted>
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
-    <isdefault>0</isdefault>
-    <savedqueryid>{b15ff8d6-73c4-e911-a860-000d3ae0a6cf}</savedqueryid>
+    <isdefault>1</isdefault>
+    <savedqueryid>{737a8a01-2365-4099-891e-9a1b6b2d14b7}</savedqueryid>
     <layoutxml>
-      <grid name="resultset" jump="ryr_name" select="1" icon="1" preview="1">
-        <row name="result" id="ryr_testentityid">
+      <grid name="ryr_blankentities" jump="ryr_name" select="1" icon="1" preview="0">
+        <row name="ryr_blankentity" id="ryr_blankentityid">
           <cell name="ryr_name" width="300" />
           <cell name="createdon" width="125" />
         </row>
-        <controlDescriptions />
       </grid>
     </layoutxml>
-    <querytype>0</querytype>
+    <querytype>64</querytype>
     <fetchxml>
       <fetch version="1.0" mapping="logical">
-        <entity name="ryr_testentity">
+        <entity name="ryr_blankentity">
+          <attribute name="ryr_blankentityid" />
           <attribute name="ryr_name" />
           <attribute name="createdon" />
-          <order attribute="ryr_name" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
-          <attribute name="ryr_testentityid" />
         </entity>
       </fetch>
     </fetchxml>
     <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Active Test Entities - BPF" languagecode="1033" />
+      <LocalizedName description="Blank Entity Lookup View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>

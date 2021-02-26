@@ -6,20 +6,20 @@
     <isquickfindquery>0</isquickfindquery>
     <isprivate>0</isprivate>
     <isdefault>1</isdefault>
-    <savedqueryid>{0089208c-fda2-4319-b55e-9fea782c80cf}</savedqueryid>
+    <savedqueryid>{e74436b5-ea02-4819-95f8-050b622bdf24}</savedqueryid>
     <layoutxml>
-      <grid name="resultset" jump="ryr_name" select="1" icon="1" preview="1">
-        <row name="result" id="ryr_testentityid">
+      <grid name="ryr_blankentities" jump="ryr_name" select="1" icon="1" preview="1">
+        <row name="ryr_blankentity" id="ryr_blankentityid">
           <cell name="ryr_name" width="300" />
           <cell name="createdon" width="125" />
         </row>
       </grid>
     </layoutxml>
-    <querytype>0</querytype>
+    <querytype>2</querytype>
     <fetchxml>
       <fetch version="1.0" mapping="logical">
-        <entity name="ryr_testentity">
-          <attribute name="ryr_testentityid" />
+        <entity name="ryr_blankentity">
+          <attribute name="ryr_blankentityid" />
           <attribute name="ryr_name" />
           <attribute name="createdon" />
           <order attribute="ryr_name" descending="false" />
@@ -29,9 +29,9 @@
         </entity>
       </fetch>
     </fetchxml>
-    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <IntroducedVersion>1.0.0.0</IntroducedVersion>
     <LocalizedNames>
-      <LocalizedName description="Active Test Entities" languagecode="1033" />
+      <LocalizedName description="Blank Entity Associated View" languagecode="1033" />
     </LocalizedNames>
   </savedquery>
 </savedqueries>
