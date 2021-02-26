@@ -103,7 +103,7 @@ jobs:
           run-asynchronously: true          
       # upgrade-solution still does not support service accounts on 26/02
       - id: apply-solution-upgrade
-        if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
+        if: steps.check-solution-exists.outputs.isHolding == 'true' && env.solutionType == 'Managed'
         name: Applying Solution Upgrade for ${{ github.event.inputs.solution }}
         shell: powershell
         run: |
