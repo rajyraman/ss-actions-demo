@@ -51,7 +51,7 @@ jobs:
           name: ${{ env.solution }}_managed_v${{ steps.solution-version.outputs.info }}
           path: "out/${{ env.solution }}.zip"
 
-      - uses: bobheadxi/deployments@master
+      - uses: bobheadxi/deployments@v0.4.3
         id: deployment
         with:
           step: start
@@ -116,7 +116,7 @@ jobs:
           max-async-wait-time: 120
 
       - name: Update deployment status
-        uses: bobheadxi/deployments@master
+        uses: bobheadxi/deployments@v0.4.3
         if: always()
         with:
           step: finish
