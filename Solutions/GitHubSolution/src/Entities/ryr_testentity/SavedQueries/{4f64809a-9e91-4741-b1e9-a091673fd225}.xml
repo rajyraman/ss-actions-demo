@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{4f64809a-9e91-4741-b1e9-a091673fd225}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="ryr_name" select="1" icon="1" preview="1">
+        <row name="result" id="ryr_testentityid">
+          <cell name="ryr_name" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="ryr_testentity">
+          <attribute name="ryr_testentityid" />
+          <attribute name="ryr_name" />
+          <attribute name="createdon" />
+          <order attribute="ryr_name" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="1" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Inactive Test Entities" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

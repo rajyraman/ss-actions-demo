@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ImportExportXml version="9.2.21013.141" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ImportExportXml version="9.2.21021.140" SolutionPackageVersion="9.2" languagecode="1033" generatedBy="CrmLive" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SolutionManifest>
     <UniqueName>GitHubSolution</UniqueName>
     <LocalizedNames>
       <LocalizedName description="GitHub Solution" languagecode="1033" />
     </LocalizedNames>
     <Descriptions />
-    <Version>2020.12.11.8</Version>
+    <Version>2021.02.26.3</Version>
     <Managed>2</Managed>
     <Publisher>
       <UniqueName>rajyraman</UniqueName>
@@ -79,7 +79,26 @@
         </Address>
       </Addresses>
     </Publisher>
-    <RootComponents />
-    <MissingDependencies />
+    <RootComponents>
+      <RootComponent type="1" schemaName="ryr_testentity" behavior="0" />
+    </RootComponents>
+    <MissingDependencies>
+      <MissingDependency>
+        <Required key="0" type="1" schemaName="new_testentitytestflow" displayName="Test entity test flow" solution="Active" />
+        <Dependent key="1" type="1" schemaName="ryr_testentity" displayName="Test Entity" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="2" type="66" schemaName="ryr_test.pcftest" displayName="ryr_test.pcftest" solution="Solution (1.0)" />
+        <Dependent key="3" type="60" displayName="Information" parentDisplayName="Test Entity" id="{05777f6a-0467-4f85-af5c-44c472962ccc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="4" type="66" schemaName="MscrmControls.RichTextEditor.RichTextEditorControl" displayName="MscrmControls.RichTextEditor.RichTextEditorControl" solution="msdyn_RichTextEditor (1.0.0.554)" />
+        <Dependent key="3" type="60" displayName="Information" parentDisplayName="Test Entity" id="{05777f6a-0467-4f85-af5c-44c472962ccc}" />
+      </MissingDependency>
+      <MissingDependency>
+        <Required key="5" type="66" schemaName="MscrmControls.Knob.ArcKnobControl" displayName="MscrmControls.Knob.ArcKnobControl" solution="CustomControlsCore (9.2.21021.00140)" />
+        <Dependent key="3" type="60" displayName="Information" parentDisplayName="Test Entity" id="{05777f6a-0467-4f85-af5c-44c472962ccc}" />
+      </MissingDependency>
+    </MissingDependencies>
   </SolutionManifest>
 </ImportExportXml>
