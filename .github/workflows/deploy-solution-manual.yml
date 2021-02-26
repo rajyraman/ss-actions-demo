@@ -59,8 +59,8 @@ jobs:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
           transient: true
-          env: PROD
-          desc: Importing solution ${{ github.event.inputs.solution }}_managed_v${{ steps.solution-version.outputs.info }} into PROD..
+          env: TEST
+          desc: Importing solution ${{ github.event.inputs.solution }}_managed_v${{ steps.solution-version.outputs.info }} into TEST..
 
       - id: check-solution-exists
         name: Check if ${{ github.event.inputs.solution }} solution exists
