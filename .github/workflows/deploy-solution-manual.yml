@@ -103,19 +103,15 @@ jobs:
           solution-file: "out/${{ github.event.inputs.solution }}.zip"
           activate-plugins: true
           run-asynchronously: true               
-
+      # upgrade-solution still does not support service accounts on 26/02
       - id: apply-solution-upgrade
         if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
         name: Applying Solution Upgrade for ${{ github.event.inputs.solution }}
-        uses: microsoft/powerplatform-actions/upgrade-solution@main
-        with:
-          environment-url: ${{ github.event.inputs.environmentUrl }}        
-          app-id: ${{ github.event.inputs.applicationId }}
-          client-secret: ${{ secrets.dataversesecret }}
-          tenant-id: ${{ github.event.inputs.tenantId }}
-          solution-name: ${{ github.event.inputs.solution }}
-          async: true
-          max-async-wait-time: 120
+        shell: powershell
+        run: |
+          Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Force
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ github.event.inputs.environmentUrl }}; ClientId=${{ github.event.inputs.applicationId }}; ClientSecret=${{ secrets.dataversesecret }}"
+          Merge-CrmHoldingSolutionAsync -CrmSolutionName ${{ github.event.inputs.solution }} -conn $conn
 
       - name: Create Release
         id: create_release

@@ -101,19 +101,15 @@ jobs:
           solution-file: "out/${{ env.solution }}.zip"
           activate-plugins: true
           run-asynchronously: true          
-
+      # upgrade-solution still does not support service accounts on 26/02
       - id: apply-solution-upgrade
-        if: steps.check-solution-exists.outputs.isHolding == 'true' && env.solutionType == 'Managed'
-        name: Applying Solution Upgrade for ${{ env.solution }}
-        uses: microsoft/powerplatform-actions/import-solution@main
-        with:
-          environment-url: ${{ env.environmentUrl }}        
-          app-id: ${{ env.applicationId }}
-          client-secret: ${{ secrets.dataversesecret }}
-          tenant-id: ${{ env.tenantId }}
-          solution-name: ${{ env.solution }}
-          async: true
-          max-async-wait-time: 120
+        if: steps.check-solution-exists.outputs.isHolding == 'true' && github.event.inputs.solutionType == 'Managed'
+        name: Applying Solution Upgrade for ${{ github.event.inputs.solution }}
+        shell: powershell
+        run: |
+          Install-Module -Name Microsoft.Xrm.Data.PowerShell -Confirm:$false -Force
+          $conn = Get-CrmConnection -ConnectionString "AuthType=ClientSecret; Url=${{ env.environmentUrl }}; ClientId=${{ env.applicationId }}; ClientSecret=${{ secrets.dataversesecret }}"
+          Merge-CrmHoldingSolutionAsync -CrmSolutionName ${{ env.solution }} -conn $conn
 
       - name: Update deployment status
         uses: bobheadxi/deployments@v0.4.3
