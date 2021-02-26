@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: [self-hosted, windows, x64]
+    runs-on: windows-latest
     env:
       environmentUrl: "https://dreamingincrm.crm6.dynamics.com"
       tenantId: "6698ac31-e602-4f64-ac1f-472ae585c006"
