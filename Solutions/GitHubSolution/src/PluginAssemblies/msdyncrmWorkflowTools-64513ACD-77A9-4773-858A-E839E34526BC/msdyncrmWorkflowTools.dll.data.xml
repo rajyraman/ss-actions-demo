@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PluginAssembly FullName="msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginAssemblyId="64513acd-77a9-4773-858a-e839e34526bc" CustomizationLevel="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <IsolationMode>2</IsolationMode>
+  <SourceType>0</SourceType>
+  <IntroducedVersion>1.0</IntroducedVersion>
+  <FileName>/PluginAssemblies/msdyncrmWorkflowTools-64513ACD-77A9-4773-858A-E839E34526BC/msdyncrmWorkflowTools.dll</FileName>
+  <PluginTypes>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.AddRoleToTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="f9ae7755-9398-48a5-9a2c-1149d3bdbacd" Name="Add Role To Team">
+      <FriendlyName>2c4be142-20a7-499c-a2e1-0e5b7b943583</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.AddRoleToUser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="f1fb4e72-1bf4-4815-b6ec-bbc24e209e8e" Name="Add Role To User">
+      <FriendlyName>8939a698-2623-4b26-99b2-b8d655fd8035</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.AddUserToTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="d82b600d-b6c0-46a2-b070-9b58f91e64be" Name="Add User To Team">
+      <FriendlyName>c0fc2ba5-abe2-486d-9d83-f2637bae3cac</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.ApplyRoutingRule, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="63d97738-d2b8-4a31-9e7d-7e937734c345" Name="Apply Routing Rule">
+      <FriendlyName>8d8049c5-1722-4228-b8d3-d8660f615eec</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.AssociateEntity, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="617bb5a6-2438-4062-a421-8f60b388dc1f" Name="Associate Entity">
+      <FriendlyName>b66c9525-b7a8-4a79-90fa-384ad70b4e33</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CalculateAgregateDate, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="62e60e6e-4b37-491c-8f41-c4bb73a73ff5" Name="Calculate Agregate Date">
+      <FriendlyName>a3030290-17cd-431d-84f7-7b81ddcc4c43</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CalculatePrice, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="8c4fd531-2dcb-49d2-9269-f0f252281564" Name="Calculate Price">
+      <FriendlyName>0e7e6668-d8bd-4934-9720-4b4a2e876636</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CalculateRollupField, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="9af1400a-14da-4dfe-b7a9-08cc6cefe6e1" Name="Calculate Rollup Field">
+      <FriendlyName>3cc23a63-8e7c-441c-a121-7c41ddd2d07e</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CheckAssociateEntity, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="cacc8994-e38a-4065-99cb-89c40a6661ba" Name="Check Associate Entity">
+      <FriendlyName>67394435-524b-4377-aff9-9e8a84d05f0a</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CheckUserInRole, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="5c433fbd-bb05-4f6e-95fd-8f4322058f14" Name="Check User In Role">
+      <FriendlyName>41817f2d-f463-4ea5-afde-64e007918354</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CheckUserInTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="ffd1890d-9eab-46aa-ab89-549a36c527dc" Name="Check User In Team">
+      <FriendlyName>cb6944ab-4392-4cb7-96d8-7210ae378ca7</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.AddMarketingListToCampaign, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="9d88c795-9f8f-4931-9d5f-a68b86d2d96e" Name="Add Marketing List To Campaign">
+      <FriendlyName>41e43979-c260-444c-b818-17b45eba545c</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.AddToMarketingList, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="22c8bccd-7da8-4008-a0af-e7e8a83d7107" Name="Add To Marketing List">
+      <FriendlyName>bf99ca01-fd9a-4ed4-88b8-0a0068b1652c</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.CopyMarketingListMembers, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="e3c5f7e0-510a-4bd0-9abd-5dc68c360662" Name="Copy Marketing List Members">
+      <FriendlyName>f74e98b1-18e0-4718-9fa1-7bf34bcce0be</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.CopyToStaticList, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="85e436e7-1638-4a90-b8a6-757d86ff3618" Name="Copy To Static List">
+      <FriendlyName>1fad4589-e0bf-41e8-8761-26fc9fbe6064</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.DeleteRecord, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="0fc2fd97-da2f-44cd-bfc5-d69e9375a669" Name="Delete Record">
+      <FriendlyName>58740199-70d3-44f9-abca-a40961c5a5b8</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.DeleteRecordAuditHistory, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="00b594ea-2f47-46e1-b774-19c0d3060a0c" Name="Delete Record Audit History">
+      <FriendlyName>4076a99b-44b5-4b6d-a763-94a155b1a754</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.EmailToTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="b004cfaf-b43f-4d4c-b31b-0bc9c37eec92" Name="Email To Team">
+      <FriendlyName>f2c9ab4f-3c4b-442f-b4c5-e040c60d6b25</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.EntityAttachmentToEmail, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="6a749b17-0cf5-4d1b-b9ce-98e6b494e811" Name="Entity Attachment To Email">
+      <FriendlyName>70f2c6dc-73d7-4bc1-82c3-bbce73c68e0a</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.ExecuteWorkflowByID, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="79709b61-15a2-40fa-95da-44dc3e1b0d0f" Name="Execute Workflow By ID">
+      <FriendlyName>1ad42142-7bc1-4a3b-b592-43dadd3f9f80</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.GetInitiatingUser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="d4568cd0-bcff-4f5a-868a-f3d97d92d3d3" Name="Get Initiating User">
+      <FriendlyName>4112c379-26de-4e4a-b83f-5d03209501ba</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.IsMemberOfMarketingList, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="f74479d3-ed03-4bb2-9731-3558eafd6e67" Name="Is Member Of Marketing List">
+      <FriendlyName>ab016843-dab8-4f7d-8c4d-6e0b8c51ec92</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.IsMemberOfTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="972324cd-6e86-40a8-a8e8-c2631a827d96" Name="Is Member Of Team">
+      <FriendlyName>ed758773-6095-403e-b793-ab5b397be0fb</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.NumericFunctions, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="9ac9565b-ca8d-4637-a26c-14cf1d1e18ae" Name="Numeric Functions">
+      <FriendlyName>a7c72569-df4b-4134-8aa3-4b6bd2e91df7</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.PickFromQueue, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="d127620d-89ec-469f-9782-53942c828f83" Name="Pick From Queue">
+      <FriendlyName>aa23e488-c4a5-4fb9-940f-b53a16dab8cc</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.QueueItemCount, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="84f5c5b2-6668-4406-98e6-2aabaa49a68b" Name="Queue Item Count">
+      <FriendlyName>ccbb948a-09af-4f00-bf9c-ac3868b407b0</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.RemoveFromAllMarketingLists, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="a6315b8a-cda2-4e31-a35f-e4c4d66bdd20" Name="Remove From All Marketing Lists">
+      <FriendlyName>800e3e65-2e4f-4fa4-9d97-8fb4bc037639</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.RemoveFromMarketingList, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="22428302-94d4-40f5-9c77-e166438f4964" Name="Remove From Marketing List">
+      <FriendlyName>4d668bae-c08f-4e64-aa8d-165742ba2b7b</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SalesLiteratureToEmail, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="c3669a94-8981-45f9-b0af-121217f915cc" Name="Sales Literature To Email">
+      <FriendlyName>4a6d7f53-dae8-4a6c-9418-5d04730d6330</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SendEmail, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="47ce81fb-0289-422f-8b0f-1d2f0b3a2cfc" Name="Send Email">
+      <FriendlyName>02394431-a0c6-4cbc-91c8-5e8dc9a65620</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SendEmailFromTemplateToUsersInRole, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="0ca5e66f-f4ea-473c-88d9-e47af915bad0" Name="Send Email From Template To Users In Role">
+      <FriendlyName>01be90fe-a8bc-4299-89e8-6130aca2d918</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SendEmailToUsersInRole, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="5e866293-7ddd-4f08-802a-1aa9a4cdbb26" Name="Send Email To Users In Role">
+      <FriendlyName>2bfd0175-9bf5-4899-ac44-0f0b44d58828</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SetProcess, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="ca8a8ec4-067f-4158-be14-bff6bc461779" Name="Set Process">
+      <FriendlyName>6d971035-3414-406c-9bce-93ff1107356f</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.Class.SetProcessStage, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="cceed0a8-a2e5-485b-a063-a36179c08ab1" Name="Set Process Stage">
+      <FriendlyName>1b2c5ff5-095c-4069-807f-e5c3980f7a87</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CloneChildren, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="8a3fa2be-2e5c-49f4-abfe-da766d639bb7" Name="Clone Children">
+      <FriendlyName>cb0af82c-cd62-4de0-8311-2be8ae62e0bc</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CloneRecord, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="e99f984c-407d-46a8-b14c-38e911df78af" Name="Clone Record">
+      <FriendlyName>0825a067-b19d-4133-a36f-3453375a6224</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.ConcatenateFromQuery, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="a9eacb23-a0bc-463f-9769-64d05c05b2b9" Name="Concatenate From Query">
+      <FriendlyName>04a7c2fe-5c33-4caf-b087-db9f9d6134d2</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CountChildEntityRecords, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="39bf0fb1-a937-44b2-819c-144bae3b929c" Name="Count Child Entity Records">
+      <FriendlyName>b93ab8ad-0d6a-4b5f-ad36-de7d7d412ee9</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CreateTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="e553d4c5-edb5-4189-8e74-a9f68306d35f" Name="Create Team">
+      <FriendlyName>df45b11b-e450-4c92-9f52-340f65d29533</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.CurrencyConvert, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="5c891a21-a247-4996-ba5a-c045b9ac1258" Name="Currency Convert">
+      <FriendlyName>fabce281-3f82-4a72-b017-7f08922f8c12</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.DateFunctions, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="8bbd4105-c525-4b1e-9b2e-b06ffb812875" Name="Date Functions">
+      <FriendlyName>7989e233-eb4c-4965-bfe7-66e68d8a05e7</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.DeleteOptionValue, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="c5aaa426-810f-4f71-a699-0ef37beeb461" Name="Delete Option Value">
+      <FriendlyName>5a5fedff-38b6-4c57-98b5-47040f341dac</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.DisassociateEntity, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="896d1b60-28b9-4a2f-8936-34342c9967dd" Name="Disassociate Entity">
+      <FriendlyName>0aaa404b-4089-48e1-8e26-0ada5bd0ea3a</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.EncryptText, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="e47d4352-a86e-400d-b680-b97b1e54b08c" Name="Encrypt Text">
+      <FriendlyName>c790dc84-dfcb-481d-8a34-9b03569e6a9e</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.EntityJsonSerializer, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="defc44d5-65c1-4837-ba25-2067f1b9a5ed" Name="Entity Json Serializer">
+      <FriendlyName>6daf1329-9067-417f-a6a1-8fd020a406d8</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.EntityMobileDeepLink, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="ea256264-a19b-487f-a1ce-85e15efa1af8" Name="Entity Mobile Deep Link">
+      <FriendlyName>62031980-9466-48bd-8005-f4a09864e7e1</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GeoCodeAddress, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="71086fd8-418f-44e2-8872-ba8b865aa628" Name="GeoCode Address">
+      <FriendlyName>a9a64121-077b-40ab-a1e7-20b83e6eb68a</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetAppModuleID, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="c3dd8120-1552-4184-ab1c-03f1a698fa7f" Name="Get App Module ID">
+      <FriendlyName>c59483d5-50a6-471d-98d4-beccb9e2e350</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetAppRecordUrl, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="3fb57f36-0eb5-4b1b-b46c-0b2d72244d02" Name="Get App Record Url">
+      <FriendlyName>5f524038-0d49-4320-9051-a6607224684e</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetMultiSelectOptionSet, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="40c134b1-adc2-4aeb-9d28-b3d289b625cd" Name="Get Multi Select OptionSet">
+      <FriendlyName>8182e154-3508-4b31-bd24-24a0ba501888</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetOptionSetValue, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="df08e061-5316-4b43-9e1a-2cbffab68bb0" Name="Get Option Set Value">
+      <FriendlyName>80a66e8f-4acd-42ff-996a-7473e4dc9ad7</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetRecordID, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="52949e16-8c82-49f0-81d6-2167da5a3194" Name="Get Record ID">
+      <FriendlyName>ed1f218b-ce0b-485b-94f5-2244662efdf8</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GetSharepointLocationURL, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="2c267f1d-c687-4a67-b378-d507f4f77712" Name="Get Sharepoint Location URL">
+      <FriendlyName>600f611a-607e-46b5-a09d-e81d7ed71c03</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.GoalRecalculate, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="d48c3ecb-84f8-4e6e-936b-d7ed754c2a43" Name="Goal Recalculate">
+      <FriendlyName>78dca3d4-081f-4475-a756-af85d2b69895</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.InsertOptionValue, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="a5d88057-c612-458b-9d01-320e3dba5f68" Name="Insert Option Value">
+      <FriendlyName>fa225a7e-b61e-48e9-aa2d-4ee5f7a41f46</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.JsonParser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="04eb0b98-2535-461b-a419-66c547b4cab0" Name="Json Parser">
+      <FriendlyName>5ee1c985-bfe0-4464-9462-203e4c2b3771</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.MapMultiSelectOptionSet, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="20e8ff6d-4875-4f62-9a41-12b8d6214c73" Name="Map Multi Select OptionSet">
+      <FriendlyName>a662f237-7f0e-4126-9910-51bb530f2d0a</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.OrgDBSettingsRetrieve, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="8de6bcd7-c51d-4fce-a3f6-1bd07fe36c93" Name="OrgDB Settings Retrieve">
+      <FriendlyName>504423ab-4330-42d5-a64e-3b0fd2a4a217</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.OrgDBSettingsUpdate, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="6a1c4117-623a-4b4f-af39-1ef17ba7f7f5" Name="OrgDB Settings Update">
+      <FriendlyName>f8789614-1f33-49ce-96dc-df2d95618fb6</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.QualifyLead, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="f8cf9f42-29fa-4547-9b3c-91658a0e4fa8" Name="Qualify Lead">
+      <FriendlyName>ce0460ba-7c4b-4860-b6f3-fb73129ff1a8</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.QueryValues, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="e660bbe8-2377-4e13-b73d-05fa683e1d50" Name="Query Values">
+      <FriendlyName>b1471c19-9000-49ea-a636-84afe639a012</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.RemoveRoleFromTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="1c2d985d-db1b-4b5f-958b-37aa63f494e5" Name="Remove Role From Team">
+      <FriendlyName>53cf954e-b788-465e-b8b9-49f28197fc5b</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.RemoveRoleFromUser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="001d1918-4da0-47ba-b78a-94e5ed0e8664" Name="Remove Role From User">
+      <FriendlyName>c60a7bf4-6a63-4e73-8654-03f092aaa972</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.RemoveUserFromTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="5758161c-6f15-4fa9-ab9c-05d6d2bc05d5" Name="Remove User From Team">
+      <FriendlyName>d5a0b65c-9c7d-4837-9d8e-0d86cec86330</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.RetrieveUserBUDefaultTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="1a39c85b-1eeb-48c1-bd79-d7f904a5c6ac" Name="Retrieve User BU Default Team">
+      <FriendlyName>2726fee3-14aa-4b74-b09c-a37b7a71aadc</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.RollupFunctions, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="3a194554-ee85-49f0-b97c-3192b55cb174" Name="Rollup Functions">
+      <FriendlyName>64b70c8a-ef2c-4e80-9402-a1d797de9eb1</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.SetMultiSelectOptionSet, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="ee736d5f-70f2-4af2-92c6-9ff6e330f9ce" Name="Set Multi Select OptionSet">
+      <FriendlyName>8a906e98-d124-4a3d-b05c-e742f575f079</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.SetState, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="37a65ce2-630a-4f1f-957a-d47cb63a586a" Name="Set State">
+      <FriendlyName>2f006d2a-150b-4ae3-8c06-53e17f0f27ea</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.SetUserSettings, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="596ba352-1e46-49c2-af6a-73509f2b9794" Name="Set User Settings">
+      <FriendlyName>061532da-9ed9-4a85-a64c-9e815a44c146</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.ShareRecordWithTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="10187244-a8f0-4e72-bbf6-8a0062ef7df5" Name="Share Record With Team">
+      <FriendlyName>ed18b648-43ba-4fb2-bcbd-58fd22254adb</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.ShareRecordWithUser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="0706baa7-a3ec-4f60-80d7-3cd6774ce7a5" Name="Share Record With User">
+      <FriendlyName>aec6bee9-12a5-4c92-be7e-b77bf5dfb329</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.ShareSecuredField, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="9854cfba-cd9e-45c4-99de-382b97936dc4" Name="Share Secured Field">
+      <FriendlyName>b10eaa8d-0258-48e5-9121-d92ffb93a204</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.StringFunctions, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="93698d76-7e74-40bd-bf14-05c11071fbc7" Name="String Functions">
+      <FriendlyName>fb753248-e23d-4927-810e-002315408add</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.TranslateText, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="d4a90457-9ce1-4be7-8fd2-5a02b617c678" Name="Translate Text">
+      <FriendlyName>65c6423d-32f0-4224-bfbf-a3b419146d36</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.UnshareRecordWithTeam, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="81754411-c7f3-4e8b-b99f-104b00e767ad" Name="Unshare Record With Team">
+      <FriendlyName>f562df7a-298c-4b3a-ae08-f90d2d855e18</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.UnshareRecordWithUser, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="80b0095e-99df-4410-8150-0a9df4db9ca8" Name="Unshare Record With User">
+      <FriendlyName>ce7361cb-dcfe-4b5b-bf43-0c680ac155cb</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+    <PluginType AssemblyQualifiedName="msdyncrmWorkflowTools.UpdateChildRecords, msdyncrmWorkflowTools, Version=1.0.60.1, Culture=neutral, PublicKeyToken=416e876b9bee261e" PluginTypeId="6d4478f9-4e82-43d6-b93d-1d877598e38d" Name="Update Child Records">
+      <FriendlyName>1b9f0572-5048-4294-860c-032fc522d0d5</FriendlyName>
+      <WorkflowActivityGroupName>msdyncrmWorkflowTools (1.0.60.1)</WorkflowActivityGroupName>
+    </PluginType>
+  </PluginTypes>
+</PluginAssembly>
