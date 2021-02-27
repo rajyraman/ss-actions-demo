@@ -11,7 +11,9 @@ jobs:
       environmentUrl: "https://dreamingincrm.crm6.dynamics.com"
       tenantId: "6698ac31-e602-4f64-ac1f-472ae585c006"
       solution: "GitHubSolution"
-
+      paCheckerGeography: "Australia"
+      paCheckerSaveResults: "false"
+      
     steps:
       - uses: actions/checkout@v2
 
@@ -32,7 +34,7 @@ jobs:
           solutionName: ${{ env.solution }}
           sourceEnvironmentUrl: ${{ env.environmentUrl }}
           applicationId: ${{ env.applicationId }}
-          applicationSecret: ${{ secrets.cds }}
+          applicationSecret: ${{ secrets.dataversesecret }}
           tenantId: ${{ env.tenantId }}
           geography: ${{ env.paCheckerGeography }}
           saveResults: ${{ env.paCheckerSaveResults }}

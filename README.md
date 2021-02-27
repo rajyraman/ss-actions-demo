@@ -8,5 +8,6 @@ The repository demonstrates how to use [Power Platform Actions](https://github.c
 | commit-solution-components.yml | This is a manual workflow as well, to take the solution from DEV and commit it into a new branch on the repo. This can be a [cron](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#schedule) trigger if you want this to happen every day at a preset time. |
 | deploy-solution-ci.yml | This workflow runs anytime files are pushed into Solutions/** on the main branch. It packages up the solution and deploys it into the TEST environment. |
 | deploy-solution-manual.yml | This is similar to the previous workflow, except that it can only be run manually. |
+| run-solution-checker-on-pr | Runs Power Apps Checker on PR and create a new issue, if Power Apps checker identifies any issues.
 
 All Power Platform Actions use Application Id/Secret to connect to the Dataverse API. The ApplicationId is defined in each individual workflow, and the Application Secret is setup as a secret in the repo level The name of the secret is DATAVERSESECRET.
