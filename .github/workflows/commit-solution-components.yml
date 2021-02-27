@@ -12,6 +12,8 @@ jobs:
       applicationId: "f0a39d99-08df-492d-9c84-ecc22aaa064a"
       solution: "GitHubSolution"
       timeZone: "AUS Eastern Standard Time"
+      paCheckerGeography: "Australia"
+      paCheckerSaveResults: "true"      
     steps:
       - uses: actions/checkout@v2
 
@@ -97,3 +99,16 @@ jobs:
           maintainer_can_modify: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check ${{ env.solution }} using Power Apps Checker
+        id: powerapps-checker
+        uses: rajyraman/powerapps-checker@v1.3.1
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          solutionName: ${{ env.solution }}
+          sourceEnvironmentUrl: ${{ env.environmentUrl }}
+          applicationId: ${{ env.applicationId }}
+          applicationSecret: ${{ secrets.dataversesecret }}
+          tenantId: ${{ env.tenantId }}
+          geography: ${{ env.paCheckerGeography }}
+          saveResults: ${{ env.paCheckerSaveResults }}     
