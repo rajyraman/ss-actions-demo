@@ -99,16 +99,3 @@ jobs:
           maintainer_can_modify: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Check ${{ env.solution }} using Power Apps Checker
-        id: powerapps-checker
-        uses: rajyraman/powerapps-checker@v1.4
-        with: 
-          token: ${{ secrets.GITHUB_TOKEN }}
-          solutionName: ${{ env.solution }}
-          sourceEnvironmentUrl: ${{ env.environmentUrl }}
-          applicationId: ${{ env.applicationId }}
-          applicationSecret: ${{ secrets.dataversesecret }}
-          tenantId: ${{ env.tenantId }}
-          geography: ${{ env.paCheckerGeography }}
-          saveResults: ${{ env.paCheckerSaveResults }}

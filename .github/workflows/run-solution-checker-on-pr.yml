@@ -1,0 +1,39 @@
+name: run-solution-checker-on-pr
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      applicationId: "f0a39d99-08df-492d-9c84-ecc22aaa064a"
+      environmentUrl: "https://dreamingincrm.crm6.dynamics.com"
+      tenantId: "6698ac31-e602-4f64-ac1f-472ae585c006"
+      solution: "GitHubSolution"
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - id: who-am-i
+        name: Connecting to ${{ env.environmentUrl }} as ${{ env.applicationId }}
+        uses: microsoft/powerplatform-actions/who-am-i@main
+        with:
+          environment-url: ${{ env.environmentUrl }}        
+          app-id: ${{ env.applicationId }}
+          client-secret: ${{ secrets.dataversesecret }}
+          tenant-id: ${{ env.tenantId }}
+
+      - name: Power Apps Checker
+        id: powerapps-checker
+        uses: rajyraman/powerapps-checker@v1.4
+        with: 
+          token: ${{ secrets.GITHUB_TOKEN }}
+          solutionName: ${{ env.solution }}
+          sourceEnvironmentUrl: ${{ env.environmentUrl }}
+          applicationId: ${{ env.applicationId }}
+          applicationSecret: ${{ secrets.cds }}
+          tenantId: ${{ env.tenantId }}
+          geography: ${{ env.paCheckerGeography }}
+          saveResults: ${{ env.paCheckerSaveResults }}
+          branch: ${{ github.head_ref }}
