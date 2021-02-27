@@ -102,7 +102,7 @@ jobs:
 
       - name: Check ${{ env.solution }} using Power Apps Checker
         id: powerapps-checker
-        uses: rajyraman/powerapps-checker@v1.3.1
+        uses: rajyraman/powerapps-checker@v1.4
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
           solutionName: ${{ env.solution }}
@@ -111,4 +111,4 @@ jobs:
           applicationSecret: ${{ secrets.dataversesecret }}
           tenantId: ${{ env.tenantId }}
           geography: ${{ env.paCheckerGeography }}
-          saveResults: ${{ env.paCheckerSaveResults }}     
+          saveResults: ${{ env.paCheckerSaveResults }}
